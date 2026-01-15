@@ -16,7 +16,6 @@ class Solution {
 }
 
 // 런타임이 0에 가까운 풀이가 있어 차용
-
 extension Solution {
     func solution(_nums: [Int], _ target :Int) -> {
         var result = []
