@@ -4,6 +4,11 @@
 
 <p>You can return the answer in any order.</p>
 
+---------------
+
+`nums: [Int]`와 `target: Int`가 제공됨.
+
+
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>
 
