@@ -1,5 +1,11 @@
 <h2><a href="https://leetcode.com/problems/palindrome-number">9. Palindrome Number</a></h2><h3>Easy</h3><hr><p>Given an integer <code>x</code>, return <code>true</code><em> if </em><code>x</code><em> is a </em><span data-keyword="palindrome-integer"><em><strong>palindrome</strong></em></span><em>, and </em><code>false</code><em> otherwise</em>.</p>
 
+----------
+
+주어진 정수 `x`가 palidrome(회문 回文: 똑바로 읽으나 거꾸로 읽으나 똑같은 말을 의미)이면 `true`를, 아니면 `false`를 반환
+
+----------
+
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>
 
