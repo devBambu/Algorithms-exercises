@@ -8,6 +8,10 @@
 
 `nums: [Int]`와 `target: Int`가 제공됨.
 
+더해서 `target`이 되는 `nums` 배열 요소들의 인덱스를 정답으로 반환하라.
+
+--------------
+
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>
