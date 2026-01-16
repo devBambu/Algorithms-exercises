@@ -16,8 +16,9 @@ func solution(_ arr:[Int], _ query:[Int]) -> [Int] {
 }
 
 //MARK: 튜터님 풀이
-// 나의 풀이의 경우, 인덱스를 순회하면서 새로운 배열을 복사해넣고 있음.
-// 이는 반복문이 돌 때마다 복사 비용을 발생시키므로, 해당 풀이에서는 배열을 복사하는 밥법이 아닌 범위를 계산하여 한번에 배열을 반환하는 방법을 채택함.
+/* 나의 풀이의 경우, 인덱스를 순회하면서 새로운 배열을 복사해넣고 있음.
+이는 반복문이 돌 때마다 복사 비용을 발생시키므로, 해당 풀이에서는 배열을 복사하는 밥법이 아닌 범위를 계산하여 한번에 배열을 반환하는 방법을 채택함. */
+
 func solution2(_ arr: [Int], _ query: [Int]) -> [Int] {
 // arr의 전체 범위가 range의 초기값. (reduce의 초기값)
     let range = query.enumerated().reduce(arr.indices) { range, query in
