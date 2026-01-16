@@ -1,14 +1,18 @@
 class Solution {
     func longestCommonPrefix(_ strs: [String]) -> String {
-        var prefix = strs.first! // prefix 초기값 설정
+        let sortedStrs = strs.sorted() // 제시 배열 오름차순 정렬
+        var prefix = sortedStrs.first!.map { String($0) } // 가장 짧은 단어 할당
 
-        for (i, element) in strs.enumerated() { // 제시된 문자열 배열 순회
-            while !element.hasPrefix(prefix) { // 문자열 시작부분이 prefix를 포함하지 않는다면
-                prefix.popLast() // prefix의 마지막 글자 삭제
-                // prefix.popLast() -> prefix를 변형시킴
-                // let a = prefix.popLast() 하면, element가 "flower"일 때, a == Optional("r")
+        for s in strs {
+            let word = s.map { String($0) } // 비교할 단어
+
+            for i in 0..<prefix.count { // prefix를 순회하며 비교
+                if prefix[i] != word[i] { // 비교한 두 글자가 다르다면
+                    prefix = Array(prefix[..<i]) // prefix 갱신
+                    break
+                }
             }
         }
-        return prefix
+        return prefix.isEmpty ? "" : prefix.joined()
     }
 }
