@@ -2,6 +2,13 @@
 
 <p>If there is no common prefix, return an empty string <code>&quot;&quot;</code>.</p>
 
+----------
+
+문자열 배열에서 가장 긴 공통 접두사 문자열을 반환하는 함수를 작성하라.
+공통 접두사가 없다면, 빈 문자열 `""`을 반환한다.
+
+----------
+
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>
 
