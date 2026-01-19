@@ -1,13 +1,8 @@
 import Foundation
 
 func solution(_ n:Int) -> Int {
-    var x = 0
-    
-    for num in 2... {
-        if n % num == 1 {
-            x = num
-            break
-        }
+    for x in 2...n {
+        if n % x == 1 { return x }
     }
-    return x
+    return 0
 }
