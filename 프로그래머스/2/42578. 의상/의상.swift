@@ -8,9 +8,9 @@ func solution(_ clothes:[[String]]) -> Int {
     clothes.forEach {
         dic[$0[1], default: 0] += 1
     }
-    let arr = Array(dic.values).map { $0 + 1 }
+    let arr = Array(dic.values).map { $0 + 1 } // '안 입는다'라는 선택지를 각 의상에 추가
 
-    return arr.reduce(1, *) - 1
+    return arr.reduce(1, *) - 1 // 모든 의상을 입지 않는 경우의 수 1을 제외
 }
 
 // 기존 답안
@@ -31,9 +31,9 @@ func solution2(_ clothes: [[String]]) -> Int {
     while !arr.isEmpty {
         result += arr.reduce(1, *)
         if arr.count != 1 {
-            result += arr.first! // 의상 단독으로만 입는 경우 추가
+            result += arr.first! // 의상 단독으로만 입는 경우
         }
-        arr.removeFirst()
+        arr.removeFirst() // 의상 종류 1개를 제거 == 입지 않는 경우
     }
         
     return result
