@@ -8,16 +8,18 @@ func solution(_ friends:[String], _ gifts:[String]) -> Int {
     // 선물을 가장 받을 사람의 선물의 수
 
     // (send, receive): Int --> 튜플은 Hashble X
+    // - 처음에는 var record = [(send: String, receive: String): Int]() 로 두고 풀려고 했으나, 코드 실행 시 튜플이 Hashable 하지 않아 딕셔너리로 사용 불가
+    // - 튜터님 조언으로 String꼴로 변경
     
-    var record = [String: Int]()
-    var score = [String: Int]()
+    var record = [String: Int]() // 선물 주고받는 기록
+    var score = [String: Int]() // 선물 지수
     
     for r in gifts {
         record[r, default: 0] += 1
         
         let arr = r.components(separatedBy: .whitespaces)
-        score[arr[0], default: 0] += 1
-        score[arr[1], default: 0] -= 1
+        score[arr[0], default: 0] += 1 // 보냈다면 +1
+        score[arr[1], default: 0] -= 1 // 받았다면 -1
     }
 
     var result = [String: Int]()
