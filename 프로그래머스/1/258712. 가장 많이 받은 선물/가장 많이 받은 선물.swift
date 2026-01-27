@@ -24,12 +24,13 @@ func solution(_ friends:[String], _ gifts:[String]) -> Int {
 
     var result = [String: Int]()
 
-    for (i, e) in friends.enumerated() {
-        if e == friends.last { break }
-        
-        let a = e
+//    for (i, e) in friends.enumerated() { -- 굳이 enumerated할 필요가 없음
+    for i in 0..<friends.count {
+//        if e == friends.last { break } -- 조건 없어도 내부의 for문은 돌아가지 않음! (애초에 범위가 벗어났으므로)
+//        let a = e
         
         for j in (i + 1)..<friends.count {
+            let a = friends[i]
             let b = friends[j]
         
             let keyA = a + " " + b // a -> b 선물 준 횟수를 구하기 위한 키
@@ -42,16 +43,22 @@ func solution(_ friends:[String], _ gifts:[String]) -> Int {
                 result[a, default: 0] += 1
             } else if recordA < recordB { // B가 A보다 선물을 더 많이 준 경우
                 result[b, default: 0] += 1
-            } else { // A와 B의 선물 준 횟수가 동일하거나, 선물을 주고 받은 기록이 없는 경우
-                if score[a, default: 0] > score[b, default: 0] { // A의 선물 지수가 B보다 높은 경우
-                    result[a, default: 0] += 1
-                } else if score[a, default: 0] < score[b, default: 0] { // B의 선물 지수가 A보다 높은 경우
-                    result[b, default: 0] += 1
-                }
-                // A와 B의 선물 지수가 같은 경우 -- 아무 일도 일어나지 않음
+            } else if score[a, default: 0] > score[b, default: 0] {
+                result[a, default: 0] += 1
+            } else if score[a, default: 0] < score[b, default: 0] {
+                result[b, default: 0] += 1
+            } // A와 B의 선물 지수가 같은 경우 -- 아무 일도 일어나지 않음
+
+            //else { // A와 B의 선물 준 횟수가 동일하거나, 선물을 주고 받은 기록이 없는 경우
+            //    if score[a, default: 0] > score[b, default: 0] { // A의 선물 지수가 B보다 높은 경우
+            //        result[a, default: 0] += 1
+            //    } else if score[a, default: 0] < score[b, default: 0] { // B의 선물 지수가 A보다 높은 경우
+            //        result[b, default: 0] += 1
+            //    }
+                
             }
         }
     }
-
-    return result.values.sorted(by: >).first ?? 0
+     // return result.values.sorted(by: >).first ?? 0 -- 굳이 오름차순 할 필요가 없음!
+    return result.values.max() ?? 0 // max로 바로 반환
 }
