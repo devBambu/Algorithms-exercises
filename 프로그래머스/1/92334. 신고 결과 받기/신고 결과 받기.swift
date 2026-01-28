@@ -21,7 +21,7 @@ func solution(_ id_list:[String], _ report:[String], _ k:Int) -> [Int] {
     }
 
     // var mail = Array(repeating: 0, count: id_list.count) -- repeating하면서 배열을 만드는 게 연산 시간이 더 걸리지 않을까
-    var mail: [Int] = [] // 최종 답안
+    var mail: [Int] = [] // 최종 답안 -- 쪼오끔 빨라지긴 햇음
     
     // for (i, e) in id_list.enumerated() {
     //     for p in reportList[e, default: []] {
