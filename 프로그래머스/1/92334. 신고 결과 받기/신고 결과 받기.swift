@@ -19,19 +19,12 @@ func solution(_ id_list:[String], _ report:[String], _ k:Int) -> [Int] {
         reportList[a, default: []].append(b)
         reported[b, default: 0] += 1
     }
-
-    // var mail = Array(repeating: 0, count: id_list.count) -- repeating하면서 배열을 만드는 게 연산 시간이 더 걸리지 않을까
-    var mail: [Int] = [] // 최종 답안 -- 쪼오끔 빨라지긴 햇음
     
-    // for (i, e) in id_list.enumerated() {
-    //     for p in reportList[e, default: []] {
-    //         mail[i] = reported[p, default: 0] >= k ? mail[i] + 1 : mail[i] // mail[i]를 계속 변화시키는 것보다 한번에 append 하는게 더 빠르지 않을까
-    //     }    
-    // }
-
+    var mail: [Int] = []
+    
     for id in id_list {
-        let num = reportList[id, default: []].reduce(into: 0) {
-            $0 = reported[$1, default: 0] >= k ? $0 + 1 : $0
+        let num = reportList[id, default: []].reduce(0) {
+            reported[$1, default: 0] >= k ? $0 + 1 : $0
         }
         mail.append(num)
     }
