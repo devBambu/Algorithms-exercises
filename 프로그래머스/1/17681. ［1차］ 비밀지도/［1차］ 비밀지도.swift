@@ -1,4 +1,5 @@
 // 기존 코드
+// - 10진수 정수를 2진수로 나타내는 방법이 없을까 찾으려다 실패하고 문자열을 활용하여 풀이
 func solution(_ n:Int, _ arr1:[Int], _ arr2:[Int]) -> [String] {
     // 공백1 & 공백2 == 공백 0 && 0
     // 벽1 || 공백2 == 벽 0 || 1
@@ -31,6 +32,7 @@ func solution(_ n:Int, _ arr1:[Int], _ arr2:[Int]) -> [String] {
 }
 
 // 최종 답안
+// - 비트 연산자를 사용하여 연산을 한 후 문자열로 변환
 func solution(_ n:Int, _ arr1:[Int], _ arr2:[Int]) -> [String] {
    return (0..<n).map { arr1[$0] | arr2[$0] } // &, |는 비트 연산자!
     .reduce(into: [String]()) { result, num in
