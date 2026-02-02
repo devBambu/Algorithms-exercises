@@ -1,3 +1,4 @@
+// 기존 코드
 func solution(_ n:Int, _ arr1:[Int], _ arr2:[Int]) -> [String] {
     // 공백1 & 공백2 == 공백 0 && 0
     // 벽1 || 공백2 == 벽 0 || 1
@@ -27,4 +28,18 @@ func solution(_ n:Int, _ arr1:[Int], _ arr2:[Int]) -> [String] {
     }
     
     return answer
+}
+
+// 최종 답안
+func solution(_ n:Int, _ arr1:[Int], _ arr2:[Int]) -> [String] {
+   return (0..<n).map { arr1[$0] | arr2[$0] } // &, |는 비트 연산자!
+    .reduce(into: [String]()) { result, num in
+                               var num = num
+                               let bit = (0..<n)
+                               .reduce(into: "") { string, n in
+                                                string = num % 2 == 1 ? string + "#" : string + " "
+                                                num = num / 2
+                                                }.reversed()
+                               result.append(String(bit))
+                              }
 }
