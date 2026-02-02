@@ -10,17 +10,20 @@ func solution(_ n:Int, _ arr1:[Int], _ arr2:[Int]) -> [String] {
     
     for i in 0..<n {
         var numA = arr1[i]
+        // 2진수 형태로 배열로 변환
         let bitA = Array((0..<n).reduce(into: [Int]()) { arr, n in
                                                  arr.append(numA % 2)
                                                 numA = numA / 2
                                                 }.reversed())
         
         var numB = arr2[i]
+        // 2진수 형태로 배열로 변환
         let bitB = Array((0..<n).reduce(into: [Int]()) { arr, n in
                                                  arr.append(numB % 2)
                                                 numB = numB / 2
                                                 }.reversed())
-        
+
+        // 같은 위치의 2진수 비트를 비교하여 문자열로 변환
         let ans = zip(bitA, bitB).reduce(into: "") { result, zip in
                                           result = zip.0 == 0 && zip.1 == 0 ? result + " " : result + "#"
             
