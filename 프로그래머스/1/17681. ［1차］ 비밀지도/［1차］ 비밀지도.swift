@@ -48,3 +48,17 @@ func solution(_ n:Int, _ arr1:[Int], _ arr2:[Int]) -> [String] {
                                result.append(String(bit))
                               }
 }
+
+// shift 연산 사용
+// - num >> i : i만큼 num을 오른쪽으로 이동 & 1 -> 마지막 비트가 '1'일 때만 결과값이 1
+func solution(_ n:Int, _ arr1:[Int], _ arr2:[Int]) -> [String] {
+   return (0..<n).map { arr1[$0] | arr2[$0] }
+    .reduce(into: [String]()) { result, num in
+                               var temp = ""
+                               for i in 0..<n {
+                                   temp = (num >> i & 1) == 1 ? "#" + temp : " " + temp 
+                               }
+                               
+                               result.append(temp)
+                              }
+}
