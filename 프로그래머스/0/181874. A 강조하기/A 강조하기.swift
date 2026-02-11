@@ -8,5 +8,5 @@ func solution(_ myString:String) -> String {
 
 // 다른 사람의 풀이
 func solution(_ myString: String) -> String {
-    return myString.lowercased().replacintOccurence(of: "a", with: "A")
+    return myString.lowercased().replacingOccurence(of: "a", with: "A")
 }
