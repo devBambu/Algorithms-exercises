@@ -5,7 +5,7 @@ func solution(_ cacheSize:Int, _ cities:[String]) -> Int {
     // LRU 캐시: 가장 오랫동안 사용되지 않은 캐시를 삭제
     
     // 캐시 딕셔너리 - [도시 이름: (실행 순서, 실행 횟수)
-    // 실행 순서(index) 0 > 1 > 2 : 가장 최근에 실행된 순
+    // 실행 순서(index) 0 > 1 > 2 : 가장 최근에 실행된 순, 0이 가장 최근
     var cache = [String: (index: Int, count: Int)]()
     var runTime = 0 // 실행 시간
     
