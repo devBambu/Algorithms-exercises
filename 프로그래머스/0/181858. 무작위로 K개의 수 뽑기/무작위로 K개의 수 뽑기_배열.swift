@@ -1,7 +1,7 @@
 func solution(_ arr:[Int], _ k:Int) -> [Int] {
     let result = arr.reduce(into: [Int]()) {
         if $0.count == k { return }
-        if !$0.contains($1) { // 지속해서 결과 배열 $0이 $1를 가지고 있는지 contains 연산 필요 -- 연산 시간 오래 걸림
+        if !$0.contains($1) { // 지속해서 결과 배열 $0이 $1를 가지고 있는지 contains 연산 필요 -- 연산 시간 오래 걸림 O(n)
             $0.append($1)
         }
     }
