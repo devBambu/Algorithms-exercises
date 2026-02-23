@@ -6,35 +6,30 @@ func solution(_ progresses:[Int], _ speeds:[Int]) -> [Int] {
     
     let queue = Array(zip(progresses, speeds)) // 배포 대기중
     
-    let days = queue.reduce(into: [Int]()) { arr, q in
-        var num = 0 // 작업 완료 소요 일수
-        var progress = q.0 // 진행도
-                                 
-        while progress < 100 {
-            progress += q.1
-            num += 1
-        }
-                                
-        arr.append(num)
+    // 각 작업의 작업 완료 일수 배열
+    let days = queue.map {
+        ((100 - Double($0.0)) / Double($0.1)).rounded(.up)
     }
     
-    // [7, 3, 9]
-    print(days)
+    // days = [7, 3, 9]
     
     var complete = days[0] // 기준 일수
-    var release = 0
-    var result = [Int]()
+    var release = 0 // 배포 작업 수
+    var result = [Int]() // 결과 배열
     
     for d in days {
-        if d <= complete {
-            release += 1
-        } else {
-            result.append(release)
-            release = 1
+        if d <= complete { // 기준 일수보다 작업 완료 일수가 작거나 같을 경우
+            release += 1 // 배포 작업 수 +1
+        } else { // 기준 일수보다 작업 완료 일수가 클 경우
+            result.append(release) // 결과 배열에 배포 작업 수 추가
+            
+            // 기준 변경
             complete = d
+            release = 1 // 현재 작업(d)
         }
     }
-    result.append(release)
+    
+    result.append(release) // days 배열 순회 완료 시 마지막 release는 결과 배열에 추가되지 않으므로 추가
     
     return result
 }
