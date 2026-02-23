@@ -21,7 +21,7 @@ func solution(_ progresses:[Int], _ speeds:[Int]) -> [Int] {
         if d <= complete { // 기준 일수보다 작업 완료 일수가 작거나 같을 경우
             release += 1 // 배포 작업 수 +1
         } else { // 기준 일수보다 작업 완료 일수가 클 경우
-            result.append(release) // 결과 배열에 배포 작업 수 추가
+            result.append(release) // 결과 배열에 배포 작업 수 추가 - 시간복잡도 O(1)
             
             // 기준 변경
             complete = d
