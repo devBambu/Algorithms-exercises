@@ -1,10 +1,10 @@
 # [level 0] 숨어있는 숫자의 덧셈 (2) - 120864 
 
-[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/120864) 
+[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/120864?language=swift) 
 
 ### 성능 요약
 
-메모리: 15.8 MB, 시간: 0.16 ms
+메모리: 16.2 MB, 시간: 0.57 ms
 
 ### 구분
 
@@ -16,7 +16,7 @@
 
 ### 제출 일자
 
-2026년 05월 13일 10:27:28
+2026년 05월 13일 10:38:30
 
 ### 문제 설명
 
