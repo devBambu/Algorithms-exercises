@@ -8,14 +8,6 @@ func solution(_ numbers:[Int], _ k:Int) -> Int {
     // 2 * 4 - 6  = 2
     // 2 * (k - 1) - numbers.count
     
-    // [1, 2], k == 1
-    // 2 * 0 - 2 = -2
-    
-    var i = abs(2 * (k - 1) - numbers.count)
-    
-    while i > numbers.count - 1 {
-       i = i - numbers.count 
-    }
-    
+    let i = (k - 1) * 2 % numbers.count
     return numbers[i]
 }
