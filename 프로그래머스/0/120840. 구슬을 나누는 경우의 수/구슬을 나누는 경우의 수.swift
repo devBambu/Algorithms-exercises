@@ -1,56 +1,31 @@
 import Foundation
 
 func solution(_ balls:Int, _ share:Int) -> Int {
-    // 경우의 수 공식: n! / (n-m)! * m!
-    // 5 * 4 * 3 * 2!
-    // 2! * 3!
-    // 5 * 4
-    // 2!
-
+    // nCr = nC(n-r) : n은 balls, r은 share
+    // nCr = n! / ((n-r)! * r!)
+    
     if balls == share {
         return 1
     }
     
-    let diff = balls - share
-    let lower = (balls - diff) + 1
+    let r = min(share, balls - share)
+    // 5 * 4 * 3 * 2 * 1
+    // (3 * 2 * 1) * (2 * 1) : r = 2
+    // 5 * 4 / 2 * 1
+    // ((n - r + 1)...n)! / r!
     
-    var numerator = Array(lower...balls) // 분자 배열
-    var denominator = Array(1...diff) // 분모 배열
+    var result = 1
     
-    let resultRange = denominator.reduce(into: numerator) { array, num in
-        guard num != 1 else { return }
-                                                          
-        var new = [Int]()
-        var target = num
-        
-        for a in array {
-            if target != 1, a % target == 0 {
-                new.append(a / target)
-                target = 1
-            } else if target == 1 {
-                new.append(a)
-            } else {
-                let gcd = gcd(a, target)
-                new.append(a / gcd)
-                target = target / gcd
-            }
+    let numerator = Array((balls - r + 1)...balls)
+    let denominator = Array(1...r)
+    
+    for n in numerator.enumerated() {
+        if n.offset < denominator.count {
+            result = result * n.element / denominator[n.offset]
+        } else {
+            result = result * n.element
         }
-        
-        array = new // 분자 배열 갱신
     }
     
-    return resultRange.reduce(1, *)
-}
-    
-func gcd(_ a: Int, _ b: Int) -> Int {
-    var a = a
-    var b = b
-
-    while b != 0 {
-        let remainder = a % b
-        a = b
-        b = remainder
-    }
-
-    return a
+    return result
 }
