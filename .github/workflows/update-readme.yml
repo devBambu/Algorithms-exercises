@@ -1,0 +1,37 @@
+name: Update README
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'LeetCode/**'
+      - '백준/**'
+      - '프로그래머스/**'
+      - 'scripts/generate_readme.py'
+      - '.github/workflows/update-readme.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  update-readme:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Generate README
+        run: python3 scripts/generate_readme.py
+
+      - name: Commit and push changes
+        run: |
+          if git diff --quiet README.md; then
+            echo "README is already up to date"
+            exit 0
+          fi
+
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+          git add README.md
+          git commit -m "docs: update algorithm index"
+          git push
