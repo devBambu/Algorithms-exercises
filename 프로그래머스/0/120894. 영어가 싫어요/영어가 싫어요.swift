@@ -13,18 +13,12 @@ func solution(_ numbers:String) -> Int64 {
         "eight": "8",
         "nine": "9"
     ]
+
+    var string = numbers
     
-    var resultString = ""
-    var target = ""
-    
-    for s in numbers {
-        target += String(s)
-        
-        if let numString = numberDictionary[target] {
-            resultString += numString
-            target = ""
-        }
+    for num in numberDictionary {
+        string = string.replacingOccurrences(of: num.key, with: num.value)
     }
 
-    return Int64(resultString)!
+    return Int64(string)!
 }

@@ -1,10 +1,10 @@
 # [level 0] 영어가 싫어요 - 120894 
 
-[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/120894) 
+[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/120894?language=swift) 
 
 ### 성능 요약
 
-메모리: 20.1 MB, 시간: 0.03 ms
+메모리: 20.5 MB, 시간: 0.21 ms
 
 ### 구분
 
@@ -16,7 +16,7 @@
 
 ### 제출 일자
 
-2026년 07월 16일 20:31:34
+2026년 07월 16일 20:35:30
 
 ### 문제 설명
 
