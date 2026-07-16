@@ -14,7 +14,6 @@ func solution(_ sides:[Int]) -> Int {
     
     // x가 가장 긴 변일 경우
     for x in (max + 1)..<(max + min) {
-        
         results.insert(x)
     }
 
