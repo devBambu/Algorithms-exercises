@@ -1,10 +1,10 @@
 # [level 0] 저주의 숫자 3 - 120871 
 
-[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/120871) 
+[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/120871?language=swift) 
 
 ### 성능 요약
 
-메모리: 20.2 MB, 시간: 0.07 ms
+메모리: 20.7 MB, 시간: 0.05 ms
 
 ### 구분
 
@@ -16,7 +16,7 @@
 
 ### 제출 일자
 
-2026년 07월 19일 17:05:40
+2026년 07월 19일 17:06:52
 
 ### 문제 설명
 
