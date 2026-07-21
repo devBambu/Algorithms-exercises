@@ -1,13 +1,7 @@
 import Foundation
 
 func solution(_ a:Int, _ b:Int) -> Int {
-    var num = a
-    while ((a % num != 0) || (b % num != 0)) && num > 0 {
-        num -= 1
-    }
-    
-    var target = b / num
-    guard target != 1 else { return 1 }
+    var target = b
     
     while (target % 5 == 0) || (target % 2 == 0) {
         if target % 5 == 0 {
@@ -17,5 +11,5 @@ func solution(_ a:Int, _ b:Int) -> Int {
         }
     }
     
-    return target == 1 ? 1 : 2
+    return a % target == 0 ? 1 : 2
 }
