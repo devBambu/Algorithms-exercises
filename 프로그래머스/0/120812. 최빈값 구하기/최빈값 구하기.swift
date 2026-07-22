@@ -6,6 +6,7 @@ func solution(_ array:[Int]) -> Int {
     }
     
     let max = dic.values.max()!
+    let filter = dic.filter { $0.value == max }
     
-    return dic.count(where: { $0.value == max }) == 1 ? dic.sorted(by: { $0.value > $1.value }).first!.key : -1
+    return filter.count == 1 ? filter.first!.key : -1
 }
