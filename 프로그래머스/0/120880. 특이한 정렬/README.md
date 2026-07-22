@@ -1,10 +1,10 @@
 # [level 0] 특이한 정렬 - 120880 
 
-[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/120880) 
+[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/120880?language=swift) 
 
 ### 성능 요약
 
-메모리: 21 MB, 시간: 0.14 ms
+메모리: 20.4 MB, 시간: 0.16 ms
 
 ### 구분
 
@@ -16,7 +16,7 @@
 
 ### 제출 일자
 
-2026년 07월 22일 17:24:36
+2026년 07월 22일 17:27:19
 
 ### 문제 설명
 
