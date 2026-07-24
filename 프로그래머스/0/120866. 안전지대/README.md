@@ -1,10 +1,10 @@
 # [level 0] 안전지대 - 120866 
 
-[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/120866) 
+[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/120866?language=swift) 
 
 ### 성능 요약
 
-메모리: 20.7 MB, 시간: 0.29 ms
+메모리: 20.9 MB, 시간: 0.22 ms
 
 ### 구분
 
@@ -16,7 +16,7 @@
 
 ### 제출 일자
 
-2026년 07월 24일 22:53:08
+2026년 07월 24일 22:55:06
 
 ### 문제 설명
 
