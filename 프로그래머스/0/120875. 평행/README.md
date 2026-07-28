@@ -1,10 +1,10 @@
 # [level 0] 평행 - 120875 
 
-[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/120875) 
+[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/120875?language=swift) 
 
 ### 성능 요약
 
-메모리: 20.4 MB, 시간: 0.12 ms
+메모리: 20.8 MB, 시간: 0.12 ms
 
 ### 구분
 
@@ -16,7 +16,7 @@
 
 ### 제출 일자
 
-2026년 07월 28일 21:26:05
+2026년 07월 28일 21:28:54
 
 ### 문제 설명
 

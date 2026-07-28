@@ -7,9 +7,9 @@ func solution(_ dots:[[Int]]) -> Int {
         for i in dot.offset..<dots.count {
             guard i != dot.offset else { continue }
             
-            let x = abs(dot.element[0] - dots[i][0])
-            let y = abs(dot.element[1] - dots[i][1])
-            let incl = Double(x) / Double(y)
+            let x = dot.element[0] - dots[i][0]
+            let y = dot.element[1] - dots[i][1]
+            let incl = Double(y) / Double(x)
             
             line[incl, default: []] += [dot.element, dots[i]]
         }
