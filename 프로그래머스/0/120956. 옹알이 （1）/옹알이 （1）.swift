@@ -3,23 +3,10 @@ import Foundation
 func solution(_ babbling:[String]) -> Int {
     return babbling.reduce(into: 0) { word, bab in
         var target = bab
-        var pron = ["aya": 0, "ye": 0, "woo": 0, "ma": 0]
-        var flag = false
+        ["aya", "ye", "woo", "ma"].forEach {
+            target = target.replacingOccurrences(of: $0, with: "#")
+        }
         
-        while !flag {
-           for p in pron.keys {
-               flag = true
-               guard pron[p]! < 1 else { continue }
-               
-               if target.hasPrefix(p) {
-                   target.trimPrefix(p)
-                   pron[p]! += 1
-                   flag = false
-                   break
-               }
-            }
-        }                         
-                                     
-        word += target.isEmpty ? 1 : 0
+        word += target.replacingOccurrences(of: "#", with: "").isEmpty ? 1 : 0             
     }
 }
