@@ -13,18 +13,16 @@ func solution(_ signals:[[Int]]) -> Int {
                                } // 반복문 종료 범위
     
     for second in 1...lcm {
-        if cycles.enumerated().reduce(into: [Bool]()) { isYellow, cycle in
-            let index = (second - 1) % cycle.element
-            let yellowRange = signals[cycle.offset][0]..<(signals[cycle.offset][0] + signals[cycle.offset][1])
-                                                                            
-            if yellowRange.contains(index) {
-                isYellow.append(true)
-            } else {
-                isYellow.append(false)
-            }                                                                        }.allSatisfy { $0 == true } {
-            return second
+        let allYellow = signals.enumerated().allSatisfy { 
+            let index = (second - 1) % cycles[$0.offset]
+            let green = $0.element[0]
+            let yellow = $0.element[1]
+            
+            return index >= green && index < (green + yellow)
         }
+        if allYellow { return second }
     }
+    
     return -1
 }
 
