@@ -1,10 +1,10 @@
 # [level 1] 자연수 뒤집어 배열로 만들기 - 12932 
 
-[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/12932) 
+[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/12932?language=swift) 
 
 ### 성능 요약
 
-메모리: 20.4 MB, 시간: 0.07 ms
+메모리: 20.5 MB, 시간: 0.04 ms
 
 ### 구분
 
@@ -16,7 +16,7 @@
 
 ### 제출 일자
 
-2026년 08월 03일 11:38:16
+2026년 08월 03일 11:40:38
 
 ### 문제 설명
 

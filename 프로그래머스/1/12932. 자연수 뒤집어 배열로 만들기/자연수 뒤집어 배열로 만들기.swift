@@ -1,3 +1,3 @@
 func solution(_ n:Int64) -> [Int] {
-    return String(n).map { Int(String($0))! }.reversed()
+    return String(n).compactMap { Int(String($0)) }.reversed()
 }
