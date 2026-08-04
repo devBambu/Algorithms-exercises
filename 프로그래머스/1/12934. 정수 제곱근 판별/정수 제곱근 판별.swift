@@ -1,9 +1,7 @@
+import Foundation
+
 func solution(_ n:Int64) -> Int64 {
-    let assume = Int(Float(n).squareRoot())
+    let assume = Int64(sqrt(Float(n)))
     
-    if assume * assume == n {
-        return Int64((assume + 1) * (assume + 1))
-    } else {
-        return Int64(-1)
-    }
+    return assume * assume == n ? (assume + 1) * (assume + 1) : Int64(-1)
 }
