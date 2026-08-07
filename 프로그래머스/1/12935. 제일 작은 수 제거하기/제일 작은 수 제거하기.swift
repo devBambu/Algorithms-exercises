@@ -1,6 +1,6 @@
 func solution(_ arr:[Int]) -> [Int] {
-    var result = arr
-    result.remove(at: arr.firstIndex(of: arr.min()!)!)
+    let min = arr.min()!
+    let result = arr.filter { $0 != min }
     
     return result.isEmpty ? [-1] : result 
 }
