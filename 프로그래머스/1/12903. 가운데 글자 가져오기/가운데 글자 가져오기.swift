@@ -5,7 +5,8 @@ func solution(_ s:String) -> String {
     let i = s.count / 2
     let indices = s.count % 2 == 0 ? [i - 1, i] : [i]
     
-    return indices.reduce("") { 
-        $0 + characters[$1]
-    }
+    return characters.enumerated()
+    .filter { indices.contains($0.offset) }
+    .map { $0.element }
+    .joined()
 }
