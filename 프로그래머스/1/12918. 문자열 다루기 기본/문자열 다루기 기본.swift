@@ -1,4 +1,4 @@
 func solution(_ s:String) -> Bool {
     return (s.count == 4 || s.count == 6)
-        && s.allSatisfy { Int(String($0)) != nil }
+        && Int(s) != nil
 }
