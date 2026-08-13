@@ -1,10 +1,10 @@
 # [level 1] 최대공약수와 최소공배수 - 12940 
 
-[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/12940) 
+[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/12940?language=swift) 
 
 ### 성능 요약
 
-메모리: 20.6 MB, 시간: 0.01 ms
+메모리: 20.8 MB, 시간: 0.01 ms
 
 ### 구분
 
@@ -16,7 +16,7 @@
 
 ### 제출 일자
 
-2026년 08월 13일 15:03:50
+2026년 08월 13일 15:23:16
 
 ### 문제 설명
 
