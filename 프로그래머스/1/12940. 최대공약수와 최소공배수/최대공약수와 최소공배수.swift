@@ -6,6 +6,5 @@ func solution(_ n:Int, _ m:Int) -> [Int] {
 }
 
 func gcd(_ a: Int, _ b: Int) -> Int {
-    let mod = a % b
-    return mod == 0 ? b : gcd(b, mod)
+    return b == 0 ? a : gcd(b, a % b)
 }
