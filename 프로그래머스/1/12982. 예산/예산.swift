@@ -5,11 +5,10 @@ func solution(_ d:[Int], _ budget:Int) -> Int {
     // 15 - 5 = 10 > budget 
     // 15 - 5 - 4 = 6 < budget
     
-    var request = d.reduce(0, +)
-    if request <= budget { return d.count }
+    var request = 0
     
-    return d.sorted(by: >).filter { 
-        request = request - $0
-        return request <= budget
-    }.count - 1
+    return d.sorted().reduce(0) {
+        request += $1
+        return request <= budget ? $0 + 1 : $0
+    }
 }
