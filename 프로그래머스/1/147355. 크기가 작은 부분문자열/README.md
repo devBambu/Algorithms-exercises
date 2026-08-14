@@ -1,10 +1,10 @@
 # [level 1] 크기가 작은 부분문자열 - 147355 
 
-[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/147355) 
+[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/147355?language=swift) 
 
 ### 성능 요약
 
-메모리: 20.4 MB, 시간: 7.31 ms
+메모리: 20.5 MB, 시간: 110.66 ms
 
 ### 구분
 
@@ -16,7 +16,7 @@
 
 ### 제출 일자
 
-2026년 08월 14일 13:23:05
+2026년 08월 14일 13:28:08
 
 ### 문제 설명
 
