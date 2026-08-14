@@ -5,18 +5,11 @@ func solution(_ d:[Int], _ budget:Int) -> Int {
     // 15 - 5 = 10 > budget 
     // 15 - 5 - 4 = 6 < budget
     
-    let max = d.reduce(0, +)
-    if max <= budget { return d.count }
+    var request = d.reduce(0, +)
+    if request <= budget { return d.count }
     
-    var current = max
-    var departments = d
-    
-    while current > budget {
-        current = current - departments.max()!
-        
-        let i = departments.firstIndex(of: departments.max()!)!
-        departments.remove(at: i)
-    }
-    
-    return departments.count
+    return d.sorted(by: >).filter { 
+        request = request - $0
+        return request <= budget
+    }.count - 1
 }
