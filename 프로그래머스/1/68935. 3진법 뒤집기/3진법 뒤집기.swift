@@ -6,14 +6,12 @@ func solution(_ n:Int) -> Int {
     var num = n
     var triple = [Int]()
     
-    while true {
+    while num >= 3 {
         triple.append(num % 3)
+        num /= 3
         
-        if num / 3 < 3 {
-            triple.append(num / 3)
-            break
-        } else {
-            num = num / 3
+        if num < 3 {
+            triple.append(num)
         }
     }
     
