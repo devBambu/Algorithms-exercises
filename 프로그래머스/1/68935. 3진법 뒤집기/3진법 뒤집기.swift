@@ -1,18 +1,12 @@
 import Foundation
 
 func solution(_ n:Int) -> Int {
-    guard n > 3 else { return n }
-    
     var num = n
     var triple = [Int]()
     
-    while num >= 3 {
+    while num > 0 {
         triple.append(num % 3)
         num /= 3
-        
-        if num < 3 {
-            triple.append(num)
-        }
     }
     
     return triple.enumerated().reduce(0) { result, target in
