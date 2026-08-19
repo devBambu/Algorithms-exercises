@@ -1,19 +1,26 @@
 func solution(_ s:String, _ n:Int) -> String {
     let upperRange = (Character("A").asciiValue!...Character("Z").asciiValue!) // 소문자 아스키코드 범위
     let lowerRange = (Character("a").asciiValue!...Character("z").asciiValue!) // 대문자 아스키코드 범위
+    let num = UInt8(n)
 
     return s.map {
-        guard $0 != " " else { return " " } // 공백 제외
-        
         let code = $0.asciiValue!
-        let newCode = Int(code) + n
-        var scalar = UnicodeScalar(newCode)!
         
-        if lowerRange.contains(code) && newCode > Int(lowerRange.upperBound) ||
-        upperRange.contains(code) && newCode > Int(upperRange.upperBound) {
-            scalar = UnicodeScalar(newCode - 26)!
+        let scalar: UnicodeScalar? = switch code {
+            case upperRange:
+            UnicodeScalar((code + num - upperRange.lowerBound) % 26 + upperRange.lowerBound)
+            
+            case lowerRange:
+            UnicodeScalar((code + num - lowerRange.lowerBound) % 26 + lowerRange.lowerBound)
+            
+            default: // 공백일 경우
+            nil
         }
         
-        return String(Character(scalar))
+        if let scalar {
+            return String(Character(scalar))
+        } else {
+            return " "
+        }
     }.joined()
 }
