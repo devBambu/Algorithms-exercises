@@ -7,21 +7,10 @@ func solution(_ s:String) -> Int {
         "six": "6", "seven": "7", "eight": "8", "nine": "9"
     ]
     
-    var resultString = ""
-    var temp = ""
+    var resultString = s
     
-    for letter in s.map{ String($0) } {
-        
-        if let num = Int(letter) {
-            resultString += letter
-        } else {
-            temp += letter
-        }
-        
-        if let num = numbers[temp] {
-            resultString += num
-            temp = ""
-        }
+    for num in numbers {
+        resultString = resultString.replacingOccurrences(of: num.key, with: num.value)
     }
     
     return Int(resultString) ?? 0
