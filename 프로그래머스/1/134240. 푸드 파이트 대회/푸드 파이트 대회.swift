@@ -1,12 +1,10 @@
 import Foundation
 
 func solution(_ food:[Int]) -> String {
-    let singleDisplay = food.enumerated().reduce([Int]()) { arr, f in
-        guard f.element > 0 else { return arr }
-        return arr + Array(repeating: f.offset, count: f.element / 2)
+    let display = food.enumerated().reduce("") { string, f in
+        guard f.element > 0 else { return string }
+        return string + Array(repeating: String(f.offset), count: f.element / 2).joined()
     }
     
-    let display = singleDisplay + [0] + singleDisplay.reversed()
-    
-    return display.map { String($0) }.joined()
+    return display + "0" + display.reversed()
 }
