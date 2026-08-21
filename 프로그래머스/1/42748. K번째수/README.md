@@ -1,10 +1,10 @@
 # [level 1] K번째수 - 42748 
 
-[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/42748) 
+[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/42748?language=swift) 
 
 ### 성능 요약
 
-메모리: 20.5 MB, 시간: 0.05 ms
+메모리: 20.3 MB, 시간: 0.18 ms
 
 ### 구분
 
@@ -16,7 +16,7 @@
 
 ### 제출 일자
 
-2026년 08월 21일 10:31:58
+2026년 08월 21일 10:33:27
 
 ### 문제 설명
 
