@@ -1,10 +1,10 @@
 # [level 1] 2016년 - 12901 
 
-[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/12901) 
+[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/12901?language=swift) 
 
 ### 성능 요약
 
-메모리: 24 MB, 시간: 50.87 ms
+메모리: 20.2 MB, 시간: 0.05 ms
 
 ### 구분
 
@@ -16,7 +16,7 @@
 
 ### 제출 일자
 
-2026년 09월 04일 14:38:08
+2026년 09월 04일 14:49:55
 
 ### 문제 설명
 

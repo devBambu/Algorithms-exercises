@@ -1,19 +1,19 @@
-import Foundation
-
 func solution(_ a:Int, _ b:Int) -> String {
-    let calendar = Calendar.current
-    let comp = DateComponents(year: 2016, month: a, day: b)
-    let date = calendar.date(from: comp)!
-    let weekday = calendar.dateComponents([.weekday], from: date).weekday
+    let endOfMonths = [31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
     
-    return switch weekday {
-        case 1: "SUN"
-        case 2: "MON"
-        case 3: "TUE"
-        case 4: "WED"
-        case 5: "THU"
-        case 6: "FRI"
-        case 7: "SAT"
+    // 1 % 7 == 1 : 금요일
+    // 2: 토, 3: 일, 4: 월, 5: 화, 6: 수, 0: 목
+    let i = a - 1
+    let days = endOfMonths[0..<i].reduce(0, +) + b
+    
+    return switch days % 7 {
+        case 0: "THU"
+        case 1: "FRI"
+        case 2: "SAT"
+        case 3: "SUN"
+        case 4: "MON"
+        case 5: "TUE"
+        case 6: "WED"
         default: ""
     }
 }
