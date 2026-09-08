@@ -1,10 +1,10 @@
 # [level 1] 덧칠하기 - 161989 
 
-[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/161989) 
+[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/161989?language=swift) 
 
 ### 성능 요약
 
-메모리: 23.8 MB, 시간: 1.88 ms
+메모리: 21.8 MB, 시간: 1.78 ms
 
 ### 구분
 
@@ -16,7 +16,7 @@
 
 ### 제출 일자
 
-2026년 09월 08일 17:44:57
+2026년 09월 08일 17:51:33
 
 ### 문제 설명
 

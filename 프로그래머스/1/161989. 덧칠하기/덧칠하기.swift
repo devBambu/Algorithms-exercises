@@ -7,12 +7,12 @@ func solution(_ n:Int, _ m:Int, _ section:[Int]) -> Int {
     // - 롤러가 벽에서 벗어나면 안됨
     // - 구역의 일부분만 포함되도록 칠하면 안됨
     
-    var first = 0
+    var range = section.first!
     var count = 0
     
     for s in section {
-        if first == 0 || !(first..<(first + m)).contains(s) {
-            first = s
+        if s >= range {
+            range = s + m
             count += 1
         }
     }
