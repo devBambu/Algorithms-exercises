@@ -1,10 +1,10 @@
 # [level 1] 옹알이 (2) - 133499 
 
-[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/133499) 
+[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/133499?language=swift) 
 
 ### 성능 요약
 
-메모리: 20.8 MB, 시간: 0.34 ms
+메모리: 20.9 MB, 시간: 0.41 ms
 
 ### 구분
 
@@ -16,7 +16,7 @@
 
 ### 제출 일자
 
-2026년 09월 09일 11:18:10
+2026년 09월 09일 11:37:40
 
 ### 문제 설명
 
