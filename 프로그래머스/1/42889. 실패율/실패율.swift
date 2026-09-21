@@ -16,15 +16,13 @@ func solution(_ N:Int, _ stages:[Int]) -> [Int] {
     
     return (1...N).map { stage in
         let failed = stagePlayers[stage] ?? 0 // 미클리어 플레이어 수
+                        
+        let failureRate = players == 0 || failed == 0 ? Double(0)
+                        : Double(failed) / Double(players)
         
-        if players == 0 || failed == 0 {
-            return Double(0)
-        } else {
-            let failureRate = Double(failed) / Double(players)
-            players -= failed // 미클리어 플레이어 수를 다음 스테이지 도달 플레이어 수에서 제외
-            
-            return failureRate
-        }
+        players -= failed // 미클리어 플레이어 수를 다음 스테이지 도달 플레이어 수에서 제외
+                        
+        return failureRate
     }.enumerated()
     .sorted {
         if $0.element == $1.element {
