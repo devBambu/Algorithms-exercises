@@ -1,32 +1,18 @@
 import Foundation
 
 func solution(_ nums:[Int]) -> Int {
-    var (a, b, c) = (0, 1, 2)
-    var primes = [Int: [Set<Int>]]()
+    var count = 0
     
-    while a < (nums.count - 2) {
-        let targets = Set([nums[a], nums[b], nums[c]])
-        let sum = targets.reduce(0, +)
-        
-        if let numbers = primes[sum],
-        !numbers.contains(targets) {
-            primes[sum, default: [Set<Int>]()].append(targets)
-        } else if isPrime(sum) {
-            primes[sum] = [targets]
-        }
-    
-        c += 1
-        if c == nums.count {
-            b += 1
-            if b == nums.count - 1 {
-                a += 1
-                b = a + 1
+    for a in 0..<nums.count - 2 {
+        for b in (a + 1)..<nums.count - 1 {
+            for c in (b + 1)..<nums.count {
+                let sum = nums[a] + nums[b] + nums[c]
+                count = isPrime(sum) ? count + 1 : count
             }
-            c = b + 1
         }
     }
 
-    return primes.values.flatMap { $0 }.count
+    return count
 }
 
 func isPrime(_ num: Int) -> Bool {
