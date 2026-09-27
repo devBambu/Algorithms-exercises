@@ -2,18 +2,27 @@ import Foundation
 
 func solution(_ s:String) -> Int {
     var splited = 0
-    var x: Character? = nil
-    var xCount = 0
+    var targetString = Array(s)
     
-    for t in s {
-        if x == nil { x = t }
-        xCount += x! == t ? 1 : -1 // x와 타겟이 동일하면 카운트를 +1, 아니면 -1
+    while !targetString.isEmpty {
+        let x = targetString[0]
+    
+        var countX = 0
+        var countLeft = 0
+    
+        for t in targetString {
+            if t == x {
+                countX += 1
+            } else {
+                countLeft += 1
+            }
         
-        if xCount == 0 {
-            splited += 1
-            x = nil
+            if countX == countLeft { break }
         }
+        
+        targetString.removeFirst(countX + countLeft)
+        splited += 1
     }
     
-    return xCount == 0 ? splited : splited + 1
+    return splited
 }
