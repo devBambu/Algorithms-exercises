@@ -1,6 +1,12 @@
 import Foundation
 
 func solution(_ numbers:[Int], _ hand:String) -> String {
+    /*  좌표 기준 (y, x)
+    [(0, 0), (0, 1), (0, 2)] - 1, 2, 3
+    [(1, 0), (1, 1), (1, 2)] - 4, 5, 6
+    [(2, 0), (2, 1), (2, 2)] - 7, 8, 9
+    [(3, 0), (3, 1), (3, 2)] - *, 0, #
+    */
     var current = [(3, 0), (3, 2)] // (왼손 초기 위치 y, x), (오른손 초기 위치 y, x)
     
     return numbers.reduce("") { result, num in
