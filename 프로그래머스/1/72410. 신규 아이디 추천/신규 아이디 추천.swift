@@ -1,6 +1,7 @@
 import Foundation
 
 func solution(_ new_id:String) -> String {
+    // 매 단계마다 유효성검사를 하고 조건에 맞지 않는 경우에만 새로운 아이디를 추천한다는 것으로 생각함
     var round = 0
     var id = new_id
     
