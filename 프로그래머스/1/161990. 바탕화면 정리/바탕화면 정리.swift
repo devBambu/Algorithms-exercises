@@ -6,11 +6,10 @@ func solution(_ wallpaper:[String]) -> [Int] {
     for row in wallpaper.enumerated() {
         for column in Array(row.element).enumerated() {
             if column.element == "#" {
-                lux = row.offset < lux ? row.offset : lux
-                rdx = row.offset + 1 > rdx ? row.offset + 1 : rdx
-                
-                luy = column.offset < luy ? column.offset : luy
-                rdy = column.offset + 1 > rdy ? column.offset + 1 : rdy
+                lux = min(row.offset, lux)
+                luy = min(column.offset, luy)
+                rdx = max(row.offset + 1, rdx)
+                rdy = max(column.offset + 1, rdy)
             }
         }
     }
