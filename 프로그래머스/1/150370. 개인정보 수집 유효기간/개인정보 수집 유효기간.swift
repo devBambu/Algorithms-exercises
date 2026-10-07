@@ -9,14 +9,15 @@ func solution(_ today:String, _ terms:[String], _ privacies:[String]) -> [Int] {
         termsDic[split.first!] = Int(split.last!)! * 28
     }
 
-    return privacies.enumerated().reduce([Int]()) { result, privacy in
-        let split = privacy.element.components(separatedBy: .whitespaces)
+    return privacies.enumerated().reduce([Int]()) { result, element in
+        let (num, privacy) = element
+        let split = privacy.components(separatedBy: .whitespaces)
         
         guard let date = split.first, let key = split.last,
             let termDays = termsDic[key] else { return result }
         
         let retentionDays = calculateToDays(of: date) + termDays
-        return retentionDays <= threshold ? result + [privacy.offset + 1] : result
+        return retentionDays <= threshold ? result + [num + 1] : result
     }
     
     func calculateToDays(of date: String) -> Int {
