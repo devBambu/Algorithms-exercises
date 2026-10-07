@@ -5,22 +5,14 @@ func solution(_ schedules:[Int], _ timelogs:[[Int]], _ startday:Int) -> Int {
     
     for (i, schedule) in schedules.enumerated() {
         var pass = true
-        let scheduleHour = schedule / 100
-        let scheduleMinute = schedule % (scheduleHour * 100)
-        
-        let passHour = scheduleMinute + 10 >= 60 ? scheduleHour + 1 : scheduleHour
-        let passMinute = scheduleMinute + 10 >= 60 ? abs(scheduleMinute - 50) : scheduleMinute + 10
+        let passTime = calculateToMinute(of: schedule) + 10
 
         for (j, time) in timelogs[i].enumerated() {
             let weekday = (j + startday) % 7
             guard weekday != 6 && weekday != 0 else { continue } // 주말일 경우 생략
 
-            let hour = time / 100
-            let minute = time % (hour * 100)
-            
-            pass = hour < passHour ? true
-                : hour > passHour ? false
-                : minute <= passMinute
+            let target = calculateToMinute(of: time)
+            pass = target <= passTime
             
             if !pass { break }
         }
@@ -29,4 +21,8 @@ func solution(_ schedules:[Int], _ timelogs:[[Int]], _ startday:Int) -> Int {
     }
     
     return prize
+    
+    func calculateToMinute(of schedule: Int) -> Int {
+        (schedule / 100 * 60) + (schedule % 100)
+    }
 }
