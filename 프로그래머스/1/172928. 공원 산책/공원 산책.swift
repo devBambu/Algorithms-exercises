@@ -1,0 +1,64 @@
+import Foundation
+
+func solution(_ park:[String], _ routes:[String]) -> [Int] {
+    let maxHeight = park.count
+    let maxWidth = park[0].count
+    
+    var dog = [0, 0] // 로봇 강아지 좌표
+    var hurdles = Array(repeating: [Int](), count: maxHeight) // 장애물 좌표
+    
+    for (i, row) in park.enumerated() {
+        for (j, column) in Array(row).enumerated() {
+            if column == "X" {
+                hurdles[i].append(j)
+            } else if column == "S" {
+                dog = [i, j]
+            }
+        }
+    }
+    
+    for route in routes {
+        let components = route.components(separatedBy: .whitespaces)
+        guard let movement = Int(components[1]) else { continue }
+        
+        var move = dog
+        var hurdle = -1
+        
+        switch components[0] {
+            case "N", "S":
+            move[0] = components[0] == "N" ? move[0] - movement : move[0] + movement
+
+            let min = min(dog[0], move[0])
+            let max = max(dog[0], move[0])
+            
+            hurdle = hurdles.enumerated().count(where: {
+                $0.element.contains(move[1])
+                && $0.offset >= min
+                && $0.offset <= max
+            })
+            
+            case "W", "E":
+            move[1] = components[0] == "W" ? move[1] - movement : move[1] + movement
+
+            let min = min(dog[1], move[1])
+            let max = max(dog[1], move[1])
+            
+            hurdle = hurdles[move[0]].count(where: {
+                $0 >= min && $0 <= max
+            })
+            
+            default:
+            break
+        }
+        
+        if hurdle > 0
+        || move[0] >= maxHeight || move[1] >= maxWidth
+        || move[0] < 0 || move[1] < 0 {
+            continue
+        } else {
+            dog = move // 강아지 위치 갱신
+        }
+    }
+    
+    return dog
+}
