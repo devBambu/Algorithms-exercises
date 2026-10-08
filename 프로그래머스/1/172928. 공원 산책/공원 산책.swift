@@ -5,12 +5,12 @@ func solution(_ park:[String], _ routes:[String]) -> [Int] {
     let maxWidth = park[0].count
     
     var dog = [0, 0] // 로봇 강아지 좌표
-    var hurdles = Array(repeating: [Int](), count: maxHeight) // 장애물 좌표
+    var hurdles = [[Int]]() // 장애물 좌표
     
     for (i, row) in park.enumerated() {
         for (j, column) in Array(row).enumerated() {
             if column == "X" {
-                hurdles[i].append(j)
+                hurdles.append([i, j])
             } else if column == "S" {
                 dog = [i, j]
             }
@@ -31,10 +31,9 @@ func solution(_ park:[String], _ routes:[String]) -> [Int] {
             let min = min(dog[0], move[0])
             let max = max(dog[0], move[0])
             
-            hurdle = hurdles.enumerated().count(where: {
-                $0.element.contains(move[1])
-                && $0.offset >= min
-                && $0.offset <= max
+            hurdle = hurdles.count(where: {
+                $0[1] == move[1] &&
+                $0[0] >= min && $0[0] <= max
             })
             
             case "W", "E":
@@ -43,8 +42,9 @@ func solution(_ park:[String], _ routes:[String]) -> [Int] {
             let min = min(dog[1], move[1])
             let max = max(dog[1], move[1])
             
-            hurdle = hurdles[move[0]].count(where: {
-                $0 >= min && $0 <= max
+            hurdle = hurdles.count(where: {
+                $0[0] == move[0] &&
+                $0[1] >= min && $0[1] <= max
             })
             
             default:
