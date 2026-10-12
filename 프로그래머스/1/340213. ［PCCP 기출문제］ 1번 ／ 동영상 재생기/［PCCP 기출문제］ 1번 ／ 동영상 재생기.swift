@@ -1,19 +1,16 @@
 import Foundation
 
 func solution(_ video_len:String, _ pos:String, _ op_start:String, _ op_end:String, _ commands:[String]) -> String {
-    let (video, opStart, opEnd) = (
+    let (video, opStart, opEnd, start) = (
         transToSeconds(from: video_len),
         transToSeconds(from: op_start),
-        transToSeconds(from: op_end)
+        transToSeconds(from: op_end),
+        transToSeconds(from: pos)
     )
 
-    var current = transToSeconds(from: pos) // 현재 위치
+    var current = start >= opStart && start <= opEnd ? opEnd : start // 현재 위치
     
-    for (i, command) in commands.enumerated() {
-        if i == 0 {
-            current = current >= opStart && current <= opEnd ? opEnd : current // 오프닝 건너뛰기
-        }
-        
+    for (i, command) in commands.enumerated() {        
         switch command {
         case "prev":
             current = max(0, current - 10)
@@ -26,12 +23,7 @@ func solution(_ video_len:String, _ pos:String, _ op_start:String, _ op_end:Stri
         current = current >= opStart && current <= opEnd ? opEnd : current// 오프닝 건너뛰기
     }
     
-    let result = [current / 60, current % 60] // [분, 초]
-    
-    return result.reduce("") {
-        let string = $1 < 10 ? "0" + String($1) : String($1)
-        return $0.isEmpty ? string : $0 + ":\(string)"
-    }
+    return String(format: "%02d:%02d", current / 60, current % 60)
     
     func transToSeconds(from string: String) -> Int {
         let components = string.components(separatedBy: ":")
