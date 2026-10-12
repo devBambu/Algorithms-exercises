@@ -8,7 +8,7 @@ func solution(_ video_len:String, _ pos:String, _ op_start:String, _ op_end:Stri
         transToSeconds(from: pos)
     )
 
-    var current = start >= opStart && start <= opEnd ? opEnd : start // 현재 위치
+    var current = (opStart...opEnd) ~= start ? opEnd : start // 현재 위치: '~='연산자: 범위 안에 있는지를 판단하는 패턴 매칭 연산자
     
     for (i, command) in commands.enumerated() {        
         switch command {
@@ -20,7 +20,7 @@ func solution(_ video_len:String, _ pos:String, _ op_start:String, _ op_end:Stri
             break
         }
         
-        current = current >= opStart && current <= opEnd ? opEnd : current// 오프닝 건너뛰기
+        current = (opStart...opEnd) ~= current ? opEnd : current // 오프닝 건너뛰기
     }
     
     return String(format: "%02d:%02d", current / 60, current % 60)
