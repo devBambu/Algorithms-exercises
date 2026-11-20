@@ -5,13 +5,14 @@ func solution(_ brown:Int, _ yellow:Int) -> [Int] {
     let area = brown + yellow
     var height = Int(sqrt(Float(area)))
     var width = -1
+    var yellowArea = 0
     
     while height >= 3 {
         if area % height == 0 {
             width = area / height
+            yellowArea = (width - 2) * (height - 2)
         }
-        
-        let yellowArea = (width - 2) * (height - 2)    
+           
         if yellowArea == yellow { break }
         
         height -= 1
